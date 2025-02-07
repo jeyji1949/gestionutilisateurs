@@ -37,11 +37,20 @@ app.get('/users', (req, res) => {
 });
 app.post('/users', (req, res) => {
     const { nom, prenom, age, profession, email } = req.body;
+    console.log('Données reçues :', req.body);
+    
+    // Validation de l'email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: "L'email est invalide." });
+    }
+    
     db.run(`
         INSERT INTO users (nom, prenom, age, profession, email)
         VALUES (?, ?, ?, ?, ?)
     `, [nom, prenom, age, profession, email], function(err) {
         if (err) return res.status(500).json({ error: err.message });
+        console.log('Utilisateur ajouté avec succès. ID :', this.lastID);
         res.json({ id: this.lastID });
     });
 });
