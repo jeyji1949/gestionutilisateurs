@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Gestion des utilisateurs - Projet client-serveur
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet est une application client-serveur pour la gestion des utilisateurs. Il comprend :
+- Un backend en **Express.js** avec une base de données **SQLite**.
+- Un frontend en **React.js**.
+- Des tests d'API avec **Postman**.
+![Capture d'écran 2025-02-07 175646](https://github.com/user-attachments/assets/6215dee8-d79c-490d-a9df-70e1cdbc3b5d)
 
-## Available Scripts
+## Fonctionnalités
+- **CRUD** (Create, Read, Update, Delete) pour les utilisateurs.
+- Interface utilisateur simple pour afficher et ajouter des utilisateurs.
 
-In the project directory, you can run:
+## Étapes de création
 
-### `npm start`
+### 1. Backend (Express.js)
+- Initialisation du projet avec `npm init`.
+- Installation des dépendances : `express`, `sqlite3`, `cors`, `body-parser`.
+- Création de la base de données SQLite (`database.db`) et de la table `users`.
+- Implémentation des routes CRUD (`GET`, `POST`, `PUT`, `DELETE`).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Frontend (React.js)
+- Création de l'application React avec `npx create-react-app frontend`.
+- Installation d'Axios pour les requêtes HTTP.
+- Création des composants `UserList` et `UserForm`.
+- Connexion au backend pour afficher et ajouter des utilisateurs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3. Base de données (SQLite)
+![Capture d'écran 2025-02-07 170305](https://github.com/user-attachments/assets/af12abb2-61c3-4dc2-aeb8-a7ab8d566f3d)
 
-### `npm test`
+- Utilisation du module `sqlite3` pour interagir avec la base de données.
+- Création automatique du fichier `database.db` lors du premier lancement.
+  
+### 4. Tests avec Postman
+- Tests des endpoints avec Postman :
+  - `GET [/api/users](http://localhost:5000/users)` : Récupérer tous les utilisateurs.
+    ![Capture d'écran 2025-02-07 164953](https://github.com/user-attachments/assets/f46b8307-5d26-4396-8b8a-ea08e65a9a0d)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - `POST [/api/users](http://localhost:5000/users)` : Ajouter un nouvel utilisateur.
+    {
+  "nom": "safia",
+  "prenom": "safia",
+  "age": 22,
+  "profession": "testeur",
+  "email": "saf@example.com"
+}
+![Capture d'écran 2025-02-07 164908](https://github.com/user-attachments/assets/1e893717-3324-4c4b-9439-dd1b3dda2d01)
 
-### `npm run build`
+  - `PUT [/api/users/:id](http://localhost:5000/users/1)` : Mettre à jour un utilisateur.
+        {
+  "nom": "safia",
+  "prenom": "safia",
+  "age": 20,
+  "profession": "testeur",
+  "email": "saf@example.com"
+}
+![Capture d'écran 2025-02-07 165109](https://github.com/user-attachments/assets/5729bfc0-9103-4716-93c5-eb88f3ebe64d)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - `DELETE [/api/users/:id](http://localhost:5000/users/1)` : Supprimer un utilisateur.
+  ![Capture d'écran 2025-02-07 165313](https://github.com/user-attachments/assets/50bd12a1-652c-4737-bfba-70ae2eff7d4d)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation et exécution
 
-### `npm run eject`
+### Backend
+1. Accédez au dossier `backend` :
+ cd backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.installez les dépendances :.
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.Démarrez le serveur 
+node server.js.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### frontend
+npx create-react-app 
+npm install axios react-router-dom
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+###Cloner ce projet depuis GitHub
+Pour cloner ce projet sur votre machine, suivez les étapes suivantes :
 
-## Learn More
+Ouvrez un terminal.
+Clonez le projet avec la commande suivante :
+bash
+Copier
+Modifier
+git clone https://github.com/username/gestion-utilisateurs.git
+Suivez les instructions d'installation ci-dessus pour configurer et démarrer le projet.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Initialiser le dépôt Git
+git init
 
-### Code Splitting
+# Ajouter tous les fichiers au suivi de version
+git add .
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Effectuer un commit initial
+git commit -m "Premier commit: ajout des fichiers du projet"
 
-### Analyzing the Bundle Size
+# Lier ton dépôt local à GitHub
+git remote add origin https://github.com/username/gestion-utilisateurs.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Pousser les fichiers vers GitHub
+git push -u origin main
 
-### Making a Progressive Web App
+# Ajouter et committer des modifications futures
+git add .
+git commit -m "Description des modifications"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Pousser les modifications vers GitHub
+git push origin main
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+###font
+npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
