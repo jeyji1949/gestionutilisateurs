@@ -87,12 +87,14 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:5000/users/${id}`)
-      .then(() => {
-        setUsers(users.filter((user) => user.id !== id));
-      })
-      .catch((error) => console.error('Erreur lors de la suppression de l\'utilisateur.'));
+    if (window.confirm("Tu es sûr de vouloir supprimer cet utilisateur ?")) {
+      axios
+        .delete(`http://localhost:5000/users/${id}`)
+        .then(() => {
+          setUsers(users.filter((user) => user.id !== id));
+        })
+        .catch((error) => console.error('Erreur lors de la suppression de l\'utilisateur.'));
+    }
   };
 
   return (
