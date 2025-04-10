@@ -69,7 +69,7 @@ Ce projet est une application client-serveur pour la gestion des utilisateurs. I
 npm install
 
 3.Démarrez le serveur 
-node server.js.
+node server.js
 
 ### frontend
 npx create-react-app 
@@ -83,7 +83,7 @@ Clonez le projet avec la commande suivante :
 bash
 Copier
 Modifier
-git clone https://github.com/username/gestion-utilisateurs.git
+git clone https://github.com/jeyji1949/gestionutilisateurs.git
 Suivez les instructions d'installation ci-dessus pour configurer et démarrer le projet.
 
 
@@ -97,7 +97,7 @@ git add .
 git commit -m "Premier commit: ajout des fichiers du projet"
 
 # Lier ton dépôt local à GitHub
-git remote add origin https://github.com/username/gestion-utilisateurs.git
+git remote add origin https://github.com/jeyji1949/gestionutilisateurs.git
 
 # Pousser les fichiers vers GitHub
 git push -u origin main
